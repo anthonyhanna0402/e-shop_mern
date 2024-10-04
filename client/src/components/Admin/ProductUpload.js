@@ -1,7 +1,9 @@
 import React, {useState} from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const ProductUpload = () => {
+  const navigation = useNavigate();
   const [newProduct, setNewProduct] = useState({
     name:'',
     price:'',
@@ -20,6 +22,7 @@ const ProductUpload = () => {
     try {
       await axios.post('http://localhost:5000/api/product/upload', formData);
       alert('successfule'); 
+      navigation('/admin');
     } catch (error) {
       console.log('error');
     }
