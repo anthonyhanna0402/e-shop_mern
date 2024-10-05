@@ -8,7 +8,6 @@ const AddPage = () => {
     <>
       <Header />
       <ProductUpload />
-      
     </>    
   )
 }

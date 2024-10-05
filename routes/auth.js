@@ -6,11 +6,9 @@ const { secret } = require('../config/constants');
 const router = express.Router();
 
 router.post('/signup', async(req, res)=> {
-
   const {userName, userPassword, role} = req.body;
   const hashedPassword = await bcrypt.hash(userPassword,10);
   const user = new User({userName, userPassword:hashedPassword, role});
-
   try {
     const savedUser = await user.save();
     res.status(200).json(savedUser).json({message:"success"});
@@ -21,12 +19,8 @@ router.post('/signup', async(req, res)=> {
 
 router.post('/login', async(req, res)=> {
   const {userName, userPassword} = req.body;
-  console.log('username', userName);
-  console.log('password',userPassword);
   const user= await User.findOne({userName:userName});
-  console.log('user',user);
   const confirmed = await bcrypt.compare(userPassword, user.userPassword);
-  console.log('confirmed',confirmed);
   if(user && confirmed) {
     const token = jwt.sign({id:user._id, role:user.role}, secret, {expiresIn:"1h"});
     req.session.userId=user._id;
@@ -59,7 +53,8 @@ router.post('/logout', (req, res)=> {
     }
     res.json({message:'logout'});
   })
-})
+});
+
 
 module.exports = router;
 

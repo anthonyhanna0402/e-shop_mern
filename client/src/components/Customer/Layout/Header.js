@@ -27,7 +27,7 @@ const Header = () => {
   return(
     <React.Fragment>
       <div>
-      <div className="container mx-auto flex justify-between items-center px-20 py-8">
+      <div className="container mx-auto flex justify-between items-center px-10 py-8">
           <button><h1 className='text-cyan-400 text-3xl font-bold'>shop</h1></button>
           <button className="xl:hidden text-white focus:outline-none" id="menu-button">
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

@@ -3,12 +3,14 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
+const path = require('path');
 
 const dbUrl = require('./config/constants').dbUrl;
 const secretKey = require('./config/constants').secret;
 
 const userRouter = require('./routes/auth');
 const productRouter = require('./routes/admin/productupload');
+const clientproduct = require('./routes/client/production');
 const app = express();
 const port = process.env.PORT||5000;
 
@@ -30,9 +32,10 @@ mongoose
     console.log('mongodb connect succesfully');
   })
   .catch((error)=>console.log(error));
-
+app.use('/upload', express.static(path.join(__dirname, 'upload')));
 app.use('/api/user', userRouter);
 app.use('/api/product', productRouter);
+app.use('/api/client', clientproduct);
 app.listen(port, ()=>{
   console.log(`server is running on ${port}`);
 });

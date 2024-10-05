@@ -4,13 +4,17 @@ import { addToCart } from '../../../redux/product/cartSlice';
 
 const ProductItem =(props) => {
 
+  const getImageUrl = (image) => {
+    return "http://localhost:5000/"+image;
+  }
+
   const dispatch = useDispatch();
 
   return(
     <div className='p-2 w-48 h-72 flex flex-col justify-center items-center bg-gray-400/15 mr-5 mb-5'>
       <div className="">
         <img 
-          src={props.img_url}
+          src={getImageUrl(props.image)}
           className="border-solid w-32 h-32"
           alt='product_url'
         />
