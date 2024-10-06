@@ -3,7 +3,6 @@ import ProductUpload from "../components/Admin/ProductUpload";
 import Header from "../components/Admin/Header";
 
 const AddPage = () => {
-
   return(
     <>
       <Header />

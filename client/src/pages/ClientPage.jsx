@@ -10,9 +10,11 @@ const ClientPage = () => {
   const getProduction = async () => {
     try {
       const response = await axios.get('http://localhost:5000/api/client');
-      console.log('response',response.data.product);
+
       if(response.data&&response.data.product) {
-        setProduction(response.data.product);        
+        setProduction(response.data.product);
+        console.log(production);
+          
       } else {
         console.log("no data");
       }
@@ -33,7 +35,7 @@ const ClientPage = () => {
       <div className='grid grid-cols-6 mt-8'>
       {production&&(
         production.map(item=> (
-          <ProductItem image={item.image} title={item.name} price={item.price} quantity={item.quantity} />
+          <ProductItem image={item.image} title={item.name} price={item.price} quantity={item.quantity} information={item} />
         ))
       )}
       </div>

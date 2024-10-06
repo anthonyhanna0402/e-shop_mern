@@ -7,9 +7,8 @@ const ProductItem =(props) => {
   const getImageUrl = (image) => {
     return "http://localhost:5000/"+image;
   }
-
+  
   const dispatch = useDispatch();
-
   return(
     <div className='p-2 w-48 h-72 flex flex-col justify-center items-center bg-gray-400/15 mr-5 mb-5'>
       <div className="">

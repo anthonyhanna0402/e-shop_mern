@@ -13,6 +13,7 @@
     "eslint": "^8.57.1",
     "firebase": "^10.14.0",
     "jwt-decode": "^4.0.0",
+    "proxy": "^2.2.0",
     "react": "^18.3.1",
     "react-cookie": "^7.2.0",
     "react-dom": "^18.3.1",
@@ -25,11 +26,12 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test",
+    "eject": "react-app-rewired eject"
   },
+  "proxy":"http://localhost:5000",
   "eslintConfig": {
     "extends": [
       "react-app",
@@ -49,6 +51,8 @@
     ]
   },
   "devDependencies": {
-    "tailwindcss": "^3.4.12"
+    "tailwindcss": "^3.4.12",
+    "react-app-rewired": "^2.2.1",
+    "customize-cra": "^1.0.0"
   }
 }
